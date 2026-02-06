@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description"
+        content="DailyPlanner - AI-powered daily planning app that automatically builds personalized schedules, blocks distractions, and helps you focus on what truly matters. 100% Free.">
+    <title>DailyPlanner – AI-Powered Smart Daily Scheduling App</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+
+    <!-- Open Graph / Social Media Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DailyPlanner – AI-Powered Smart Daily Scheduling App">
+    <meta property="og:description"
+        content="AI-powered daily planning app that automatically builds personalized schedules, blocks distractions, and helps you focus on what truly matters. 100% Free.">
+    <meta property="og:image" content="logo.png">
+    <meta property="og:url" content="https://dailyplanner.app">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DailyPlanner – AI-Powered Smart Daily Scheduling App">
+    <meta name="twitter:description"
+        content="AI-powered daily planning app that automatically builds personalized schedules. 100% Free.">
+    <meta name="twitter:image" content="logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Icon & Animation Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="logo.png" alt="DailyPlanner Logo" class="logo-img">
+                <span>DailyPlanner</span>
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#demo" class="nav-link">Demo</a>
+                <a href="#comparison" class="nav-link">Compare</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#blog" class="nav-link">Blog</a>
+                <a href="https://play.google.com/store/apps/details?id=com.ashukaytech.daily_planner" class="nav-cta"
+                    target="_blank">Download Free</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- Section 1: Full-Screen Hero -->
+    <section class="hero-full">
+        <div class="hero-content-center">
+            <span class="hero-eyebrow"></span>
+            <h1 class="hero-headline">
+                <span class="hero-brand">DailyPlanner</span>
+            </h1>
+            <p class="hero-tagline">Plan smarter. Focus deeper. Achieve more.</p>
+            <div class="hero-cta-group">
+                <a href="https://play.google.com/store/apps/details?id=com.ashukaytech.daily_planner" class="btn-hero"
+                    target="_blank">
+                    <span class="btn-icon">▶</span>
+                    Download for Android
+                </a>
+                <a href="#demo" class="btn-hero-outline">Try Demo</a>
+            </div>
+            <div class="hero-trust">
+                <div class="trust-item">
+                    <span class="trust-value">10K+</span>
+                    <span class="trust-label">Active Users</span>
+                </div>
+                <div class="trust-divider"></div>
+                <div class="trust-item">
+                    <span class="trust-value">4.8★</span>
+                    <span class="trust-label">Play Store</span>
+                </div>
+                <div class="trust-divider"></div>
+                <div class="trust-item">
+                    <span class="trust-value">100%</span>
+                    <span class="trust-label">Free</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+
+        <!-- Background X-Scroll -->
+        <div class="hero-x-scroll-wrapper">
+            <div class="x-track track-1">
+                <div class="x-content">
+                    <span>AI Scheduling</span><span class="divider">•</span>
+                    <span>Focus Mode</span><span class="divider">•</span>
+                    <span>Pomodoro Timer</span><span class="divider">•</span>
+                    <span>Habit Tracking</span><span class="divider">•</span>
+                    <span>Daily Insights</span><span class="divider">•</span>
+                    <span>Task Management</span><span class="divider">•</span>
+                    <span>Eisenhower Matrix</span><span class="divider">•</span>
+                    <span>Smart Reminders</span><span class="divider">•</span>
+                    <span>AI Scheduling</span><span class="divider">•</span>
+                    <span>Focus Mode</span><span class="divider">•</span>
+                    <span>Pomodoro Timer</span><span class="divider">•</span>
+                    <span>Habit Tracking</span><span class="divider">•</span>
+                    <span>Daily Insights</span><span class="divider">•</span>
+                    <span>Task Management</span><span class="divider">•</span>
+                    <span>Eisenhower Matrix</span><span class="divider">•</span>
+                    <span>Smart Reminders</span><span class="divider">•</span>
+                </div>
+            </div>
+            <div class="x-track track-2">
+                <div class="x-content">
+                    <span>Distraction Blocking</span><span class="divider">•</span>
+                    <span>Goal Setting</span><span class="divider">•</span>
+                    <span>Productivity Analytics</span><span class="divider">•</span>
+                    <span>Calendar Sync</span><span class="divider">•</span>
+                    <span>Voice Commands</span><span class="divider">•</span>
+                    <span>Dark Mode</span><span class="divider">•</span>
+                    <span>Cloud Backup</span><span class="divider">•</span>
+                    <span>Distraction Blocking</span><span class="divider">•</span>
+                    <span>Goal Setting</span><span class="divider">•</span>
+                    <span>Productivity Analytics</span><span class="divider">•</span>
+                    <span>Calendar Sync</span><span class="divider">•</span>
+                    <span>Voice Commands</span><span class="divider">•</span>
+                    <span>Dark Mode</span><span class="divider">•</span>
+                    <span>Cloud Backup</span><span class="divider">•</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Sticky Showcase Demo -->
+    <section class="demo-section" id="demo">
+        <div class="showcase-wrapper">
+            <!-- Left Info -->
+            <div class="showcase-scroll side-left">
+                <div class="showcase-item" data-step="1">
+                    <span class="section-label">01. Smart Planning</span>
+                    <h2 class="section-heading">AI Timetable Generator</h2>
+                    <p class="section-desc">DailyPlanner automatically builds a personalized schedule based on your
+                        energy levels and priorities.</p>
+                </div>
+                <div class="showcase-item" data-step="2">
+                    <span class="section-label">02. Deep Work</span>
+                    <h2 class="section-heading">Distraction Blocking</h2>
+                    <p class="section-desc">Lock your phone and block distracting apps during your focus sessions to
+                        achieve massive productivity.</p>
+                </div>
+                <div class="showcase-item" data-step="3">
+                    <span class="section-label">03. Smart Priority</span>
+                    <h2 class="section-heading">Eisenhower Matrix</h2>
+                    <p class="section-desc">Prioritize tasks using the 4-quadrant system, making sure you always work on
+                        what truly matters.</p>
+                </div>
+            </div>
+
+            <!-- Sticky Phone (Center) -->
+            <div class="sticky-phone-container">
+                <div class="demo-phone-wrap">
+                    <div class="phone-mockup" id="phone-demo">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <!-- Home Screen -->
+                            <div class="app-screen active" id="screen-home" data-screen="home">
+                                <div class="app-header-home">
+                                    <button class="icon-btn" id="menu-btn"><svg width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                                        </svg></button>
+                                    <div class="greeting-block">
+                                        <span class="greeting-time" id="greeting-time">Good Morning</span>
+                                        <span class="greeting-name">User</span>
+                                    </div>
+                                    <button class="icon-btn" id="calendar-btn" data-goto="schedule"><svg width="18"
+                                            height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                                        </svg></button>
+                                </div>
+                                <div class="quote-card">
+                                    <div class="quote-icon">💬</div>
+                                    <p class="quote-text">Your limitation—it's only your imagination.</p>
+                                </div>
+                                <div class="section-block">
+                                    <h3 class="section-title-app">Daily Overview</h3>
+                                    <div class="activity-card">
+                                        <div class="activity-date" id="current-date"></div>
+                                        <h4 class="activity-heading">Your Activity</h4>
+                                        <div class="activity-content">
+                                            <div class="activity-stats-row">
+                                                <div class="mini-stat"><span class="mini-stat-value"
+                                                        id="done-count">0</span><span
+                                                        class="mini-stat-label">Done</span></div>
+                                                <div class="mini-stat"><span class="mini-stat-value"
+                                                        id="todo-count">3</span><span
+                                                        class="mini-stat-label">Todo</span></div>
+                                            </div>
+                                            <div class="progress-ring-container">
+                                                <svg class="progress-ring" viewBox="0 0 100 100">
+                                                    <circle class="ring-bg" cx="50" cy="50" r="40"></circle>
+                                                    <circle class="ring-progress" id="progress-ring" cx="50" cy="50"
+                                                        r="40"></circle>
+                                                </svg>
+                                                <span class="ring-text" id="progress-percent">0%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="quick-actions-grid">
+                                    <button class="quick-action-card" data-goto="focus">
+                                        <div class="action-icon-wrap blue"><svg width="18" height="18"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <circle cx="12" cy="12" r="3"></circle>
+                                            </svg></div><span class="action-name">Focus</span>
+                                    </button>
+                                    <button class="quick-action-card" data-goto="assistant">
+                                        <div class="action-icon-wrap purple"><svg width="18" height="18"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z">
+                                                </path>
+                                            </svg></div><span class="action-name">AI Chat</span>
+                                    </button>
+                                    <button class="quick-action-card" data-goto="insights">
+                                        <div class="action-icon-wrap pink"><svg width="18" height="18"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M18 20V10M12 20V4M6 20v-6"></path>
+                                            </svg></div><span class="action-name">Insights</span>
+                                    </button>
+                                </div>
+                                <div class="section-block">
+                                    <div class="section-header-row">
+                                        <h3 class="section-title-app">Up Next</h3><button class="text-btn"
+                                            data-goto="tasks">View All</button>
+                                    </div>
+                                    <div class="tasks-list" id="tasks-list"></div>
+                                </div>
+                                <button class="fab" id="add-task-btn"><svg width="22" height="22" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5">
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg></button>
+                            </div>
+                            <!-- Tasks Screen -->
+                            <div class="app-screen" id="screen-tasks" data-screen="tasks">
+                                <div class="app-header-inner"><button class="back-btn" data-goto="home"><svg width="18"
+                                            height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <path d="M19 12H5M12 19l-7-7 7-7" />
+                                        </svg></button>
+                                    <h2 class="header-title">All Tasks</h2><button class="icon-btn"><svg width="16"
+                                            height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+                                        </svg></button>
+                                </div>
+                                <div class="tasks-stats-bar">
+                                    <div class="task-stat-chip"><span class="chip-dot completed"></span><span
+                                            id="completed-stat">0 Completed</span></div>
+                                    <div class="task-stat-chip"><span class="chip-dot pending"></span><span
+                                            id="pending-stat">3 Pending</span></div>
+                                </div>
+                                <div class="full-tasks-list" id="full-tasks-list"></div>
+                                <button class="fab" id="add-task-btn-2"><svg width="22" height="22" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5">
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg></button>
+                            </div>
+                            <!-- Focus Screen -->
+                            <div class="app-screen" id="screen-focus" data-screen="focus">
+                                <div class="app-header-inner"><button class="back-btn" data-goto="home"><svg width="18"
+                                            height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <path d="M19 12H5M12 19l-7-7 7-7" />
+                                        </svg></button>
+                                    <h2 class="header-title">Focus Mode</h2>
+                                    <div class="header-actions"></div>
+                                </div>
+                                <div class="focus-hero">
+                                    <div class="focus-icon-large"><svg width="40" height="40" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg></div>
+                                    <h3 class="focus-headline">Time to Focus</h3>
+                                    <p class="focus-subtext">Choose your session type</p>
+                                </div>
+                                <div class="focus-stats-row">
+                                    <div class="focus-stat-card"><span class="fs-value"
+                                            id="sessions-today">0</span><span class="fs-label">Today</span></div>
+                                    <div class="focus-stat-card"><span class="fs-value" id="sessions-week">2</span><span
+                                            class="fs-label">This Week</span></div>
+                                    <div class="focus-stat-card"><span class="fs-value" id="streak-days">3</span><span
+                                            class="fs-label">Streak</span></div>
+                                </div>
+                                <div class="session-section">
+                                    <h4 class="session-heading">Session Type</h4>
+                                    <div class="session-grid"><button class="session-card" data-duration="25">
+                                            <div class="session-icon">🍅</div><span
+                                                class="session-name">Pomodoro</span><span class="session-desc">25
+                                                min</span>
+                                        </button><button class="session-card" data-duration="90">
+                                            <div class="session-icon">🧠</div><span class="session-name">Deep
+                                                Work</span><span class="session-desc">90 min</span>
+                                        </button><button class="session-card" data-duration="15">
+                                            <div class="session-icon">⚡</div><span
+                                                class="session-name">Quick</span><span class="session-desc">15
+                                                min</span>
+                                        </button><button class="session-card selected" data-duration="0">
+                                            <div class="session-icon">⚙️</div><span
+                                                class="session-name">Custom</span><span class="session-desc">Set
+                                                time</span>
+                                        </button></div>
+                                </div>
+                            </div>
+                            <!-- Timer Screen -->
+                            <div class="app-screen" id="screen-timer" data-screen="timer">
+                                <div class="timer-container">
+                                    <div class="timer-status-badge">🔒 FOCUS ACTIVE</div>
+                                    <div class="timer-visual"><svg class="timer-ring-svg" viewBox="0 0 200 200">
+                                            <defs>
+                                                <linearGradient id="timerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                    <stop offset="0%" stop-color="#6366f1" />
+                                                    <stop offset="100%" stop-color="#8b5cf6" />
+                                                </linearGradient>
+                                            </defs>
+                                            <circle class="timer-ring-bg" cx="100" cy="100" r="85" />
+                                            <circle class="timer-ring-progress" id="timer-ring-fill" cx="100" cy="100"
+                                                r="85" />
+                                        </svg>
+                                        <div class="timer-lock-icon">🔒</div>
+                                    </div>
+                                    <div class="timer-digits"><span class="timer-num" id="timer-min">25</span><span
+                                            class="timer-colon">:</span><span class="timer-num" id="timer-sec">00</span>
+                                    </div>
+                                    <div class="timer-labels"><span>MIN</span><span>SEC</span></div>
+                                    <div class="timer-controls"><button class="timer-control-btn" id="pause-btn"><svg
+                                                width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                                <rect x="6" y="4" width="4" height="16" />
+                                                <rect x="14" y="4" width="4" height="16" />
+                                            </svg></button><button class="timer-control-btn outline"
+                                            id="giveup-btn">GIVE UP</button></div>
+                                </div>
+                            </div>
+                            <!-- Assistant Screen -->
+                            <div class="app-screen" id="screen-assistant" data-screen="assistant">
+                                <div class="app-header-inner">
+                                    <div class="assistant-avatar-block">
+                                        <div class="avatar-circle">🤖</div>
+                                        <div class="avatar-info"><span class="avatar-name">AI Assistant</span><span
+                                                class="avatar-status"><span class="status-dot"></span>Online</span>
+                                        </div>
+                                    </div><button class="icon-btn"><svg width="16" height="16" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <path d="M12 16v-4M12 8h.01" />
+                                        </svg></button>
+                                </div>
+                                <div class="chat-messages" id="chat-container">
+                                    <div class="chat-msg bot">
+                                        <div class="msg-avatar">🤖</div>
+                                        <div class="msg-content">
+                                            <p>Hi! 👋 I'm your productivity assistant. I can help plan your day. Try
+                                                asking "plan my day"!</p><span class="msg-time">Now</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chat-input-bar"><input type="text" id="chat-input"
+                                        placeholder="Ask anything..." autocomplete="off"><button class="send-btn"
+                                        id="send-btn"><svg width="18" height="18" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                                        </svg></button></div>
+                            </div>
+                            <!-- Schedule Screen -->
+                            <div class="app-screen" id="screen-schedule" data-screen="schedule">
+                                <div class="app-header-inner"><button class="back-btn" data-goto="home"><svg width="18"
+                                            height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <path d="M19 12H5M12 19l-7-7 7-7" />
+                                        </svg></button>
+                                    <h2 class="header-title">Schedule</h2>
+                                    <div class="header-actions"></div>
+                                </div>
+                                <div class="calendar-strip" id="calendar-strip"></div>
+                                <div class="schedule-timeline">
+                                    <div class="timeline-item"><span class="tl-time">8:00 AM</span>
+                                        <div class="tl-event blue"><span class="tl-title">Morning workout</span></div>
+                                    </div>
+                                    <div class="timeline-item"><span class="tl-time">10:00 AM</span>
+                                        <div class="tl-event purple"><span class="tl-title">Deep work session</span>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item"><span class="tl-time">2:00 PM</span>
+                                        <div class="tl-event pink"><span class="tl-title">Team meeting</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Insights Screen -->
+                            <div class="app-screen" id="screen-insights" data-screen="insights">
+                                <div class="app-header-inner"><button class="back-btn" data-goto="home"><svg width="18"
+                                            height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <path d="M19 12H5M12 19l-7-7 7-7" />
+                                        </svg></button>
+                                    <h2 class="header-title">Insights</h2>
+                                    <div class="header-actions"></div>
+                                </div>
+                                <div class="insights-period"><button class="period-btn active">Week</button><button
+                                        class="period-btn">Month</button></div>
+                                <div class="insight-card">
+                                    <h4>Focus Time</h4>
+                                    <div class="insight-value"><span class="big-num" id="focus-hours">2</span><span
+                                            class="unit">hours</span></div>
+                                    <div class="insight-bar">
+                                        <div class="bar-fill" style="width: 10%"></div>
+                                    </div>
+                                </div>
+                                <div class="insight-card">
+                                    <h4>Tasks Completed</h4>
+                                    <div class="insight-value"><span class="big-num"
+                                            id="tasks-completed-insight">0</span><span class="unit">tasks</span></div>
+                                    <div class="insight-bar">
+                                        <div class="bar-fill purple" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="streak-card">
+                                    <div class="streak-icon">🔥</div>
+                                    <div class="streak-info"><span class="streak-num" id="current-streak">3</span><span
+                                            class="streak-label">Day Streak</span></div>
+                                </div>
+                            </div>
+                            <!-- Matrix Screen -->
+                            <div class="app-screen" id="screen-matrix" data-screen="matrix">
+                                <div class="app-header-inner"><button class="back-btn" data-goto="home"><svg width="18"
+                                            height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <path d="M19 12H5M12 19l-7-7 7-7" />
+                                        </svg></button>
+                                    <h2 class="header-title">Eisenhower Matrix</h2>
+                                    <div class="header-actions"></div>
+                                </div>
+                                <div class="matrix-intro">
+                                    <p>Organize by urgency & importance</p>
+                                </div>
+                                <div class="matrix-grid">
+                                    <div class="matrix-header"><span></span><span class="mh-label">URGENT</span><span
+                                            class="mh-label">NOT URGENT</span></div>
+                                    <div class="matrix-row"><span class="mr-label">IMP.</span>
+                                        <div class="matrix-cell do"><span class="mc-title">DO</span>
+                                            <div class="mc-task">Emergency meeting</div>
+                                        </div>
+                                        <div class="matrix-cell decide"><span class="mc-title">DECIDE</span>
+                                            <div class="mc-task">Plan goals</div>
+                                        </div>
+                                    </div>
+                                    <div class="matrix-row"><span class="mr-label">NOT</span>
+                                        <div class="matrix-cell delegate"><span class="mc-title">DELEGATE</span>
+                                            <div class="mc-empty">—</div>
+                                        </div>
+                                        <div class="matrix-cell delete"><span class="mc-title">DELETE</span>
+                                            <div class="mc-empty">—</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Settings Screen -->
+                            <div class="app-screen" id="screen-menu" data-screen="menu">
+                                <div class="app-header-inner"><button class="back-btn" data-goto="home"><svg width="18"
+                                            height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <path d="M19 12H5M12 19l-7-7 7-7" />
+                                        </svg></button>
+                                    <h2 class="header-title">Settings</h2>
+                                    <div class="header-actions"></div>
+                                </div>
+                                <div class="profile-card">
+                                    <div class="profile-avatar">👤</div>
+                                    <div class="profile-info"><span class="profile-name">User</span><span
+                                            class="profile-email">user@example.com</span></div>
+                                </div>
+                                <div class="settings-group">
+                                    <div class="setting-item"><span class="setting-icon">🔔</span><span
+                                            class="setting-label">Notifications</span><span
+                                            class="setting-chevron">›</span></div>
+                                    <div class="setting-item"><span class="setting-icon">🎨</span><span
+                                            class="setting-label">Appearance</span><span
+                                            class="setting-chevron">›</span></div>
+                                    <div class="setting-item"><span class="setting-icon">❓</span><span
+                                            class="setting-label">Help</span><span class="setting-chevron">›</span>
+                                    </div>
+                                </div>
+                                <button class="download-cta-btn">📱 Download Full App</button>
+                            </div>
+                            <div class="app-screen" id="screen-menu" data-screen="menu">
+                                <div class="app-header-inner"><button class="back-btn" data-goto="home"><svg width="18"
+                                            height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <path d="M19 12H5M12 19l-7-7 7-7" />
+                                        </svg></button>
+                                    <h2 class="header-title">Settings</h2>
+                                    <div class="header-actions"></div>
+                                </div>
+                                <div class="profile-card">
+                                    <div class="profile-avatar">👤</div>
+                                    <div class="profile-info"><span class="profile-name">User</span><span
+                                            class="profile-email">user@example.com</span></div>
+                                </div>
+                                <div class="settings-group">
+                                    <div class="setting-item"><span class="setting-icon">🔔</span><span
+                                            class="setting-label">Notifications</span><span
+                                            class="setting-chevron">›</span></div>
+                                    <div class="setting-item"><span class="setting-icon">🎨</span><span
+                                            class="setting-label">Appearance</span><span
+                                            class="setting-chevron">›</span></div>
+                                    <div class="setting-item"><span class="setting-icon">❓</span><span
+                                            class="setting-label">Help</span><span class="setting-chevron">›</span>
+                                    </div>
+                                </div>
+                                <button class="download-cta-btn">📱 Download Full App</button>
+                            </div>
+                            <!-- Bottom Nav -->
+                            <nav class="app-bottom-nav" id="app-nav">
+                                <button class="bnav-item active" data-screen="home"><svg width="20" height="20"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11">
+                                        </path>
+                                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                    </svg><span>Home</span></button>
+                                <button class="bnav-item" data-screen="tasks"><svg width="20" height="20"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 11l3 3L22 4"></path>
+                                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                                    </svg><span>Tasks</span></button>
+                                <button class="bnav-item" data-screen="focus"><svg width="20" height="20"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg><span>Focus</span></button>
+                                <button class="bnav-item" data-screen="matrix"><svg width="20" height="20"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="3" width="7" height="7" />
+                                        <rect x="14" y="3" width="7" height="7" />
+                                        <rect x="14" y="14" width="7" height="7" />
+                                        <rect x="3" y="14" width="7" height="7" />
+                                    </svg><span>Matrix</span></button>
+                                <button class="bnav-item" data-screen="assistant"><svg width="20" height="20"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                    </svg><span>AI</span></button>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Info (Alternative or Matching) -->
+            <div class="showcase-scroll side-right">
+                <div class="showcase-item" data-step="1">
+                    <ul class="demo-features-light">
+                        <li><span class="check">✓</span> Dynamic Scheduling</li>
+                        <li><span class="check">✓</span> Habit Loops</li>
+                    </ul>
+                </div>
+                <div class="showcase-item" data-step="2">
+                    <ul class="demo-features-light">
+                        <li><span class="check">✓</span> App Blocker</li>
+                        <li><span class="check">✓</span> Focus Analytics</li>
+                    </ul>
+                </div>
+                <div class="showcase-item" data-step="3">
+                    <ul class="demo-features-light">
+                        <li><span class="check">✓</span> Priority Sorting</li>
+                        <li><span class="check">✓</span> Goal Alignment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Comparison Table -->
+    <section class="comparison-section" id="comparison">
+        <div class="container">
+            <div class="comparison-header">
+                <span class="section-label">The Smart Choice</span>
+                <h2 class="section-heading">Why choose DailyPlanner?</h2>
+                <p class="section-desc">See how we stack up against other popular productivity apps.</p>
+            </div>
+            <div class="comparison-table-wrap">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th class="feature-col">Feature</th>
+                            <th class="app-col highlight">DailyPlanner</th>
+                            <th class="app-col">Todoist</th>
+                            <th class="app-col">TickTick</th>
+                            <th class="app-col">Notion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature-name">AI Timetable Generator</td>
+                            <td class="highlight"><span class="check-yes">✅</span></td>
+                            <td><span class="check-no">❌</span></td>
+                            <td><span class="check-no">❌</span></td>
+                            <td><span class="check-no">❌</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Focus Mode (App Block)</td>
+                            <td class="highlight"><span class="check-yes">✅</span></td>
+                            <td><span class="check-no">❌</span></td>
+                            <td><span class="check-no">❌</span></td>
+                            <td><span class="check-no">❌</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Pomodoro Sessions</td>
+                            <td class="highlight"><span class="check-yes">✅</span></td>
+                            <td><span class="check-no">❌</span></td>
+                            <td><span class="check-yes">✅</span></td>
+                            <td><span class="check-no">❌</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Motivational Messages</td>
+                            <td class="highlight"><span class="check-yes">✅</span></td>
+                            <td><span class="check-no">❌</span></td>
+                            <td><span class="check-no">❌</span></td>
+                            <td><span class="check-no">❌</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Eisenhower Matrix</td>
+                            <td class="highlight"><span class="check-yes">✅</span></td>
+                            <td><span class="check-no">❌</span></td>
+                            <td><span class="check-no">❌</span></td>
+                            <td><span class="check-yes">✅</span></td>
+                        </tr>
+                        <tr class="pricing-row">
+                            <td class="feature-name"><strong>Pricing</strong></td>
+                            <td class="highlight"><span class="price-free">FREE 🎉</span></td>
+                            <td><span class="price-other">₹369/mo</span></td>
+                            <td><span class="price-other">₹250/mo</span></td>
+                            <td><span class="price-other">₹860/mo</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="comparison-footer">
+                <p class="comparison-note">Everything you need, <strong>completely free</strong>.</p>
+                <p class="comparison-subnote">No subscriptions. No hidden costs. Just focus.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Features Grid -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="features-header">
+                <span class="section-label">Powerful Features</span>
+                <h2 class="section-heading">Everything you need for <br>peak productivity</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🗓</div>
+                    <h3>AI Timetable Generator</h3>
+                    <p>Automatically builds personalized daily plans around your goals and habits.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Focus Mode</h3>
+                    <p>Block distracting apps and websites while you study or work deeply.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍅</div>
+                    <h3>Pomodoro Sessions</h3>
+                    <p>25-minute work sprints with built-in timers and smart reminders.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Eisenhower Matrix</h3>
+                    <p>Prioritize tasks based on urgency and importance effectively.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>AI Assistant</h3>
+                    <p>Get personalized productivity advice and planning help.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Progress Tracking</h3>
+                    <p>Track study hours, streaks, and habits with beautiful analytics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Blog/Resources -->
+    <section class="blog-section" id="blog">
+        <div class="container">
+            <div class="blog-header">
+                <span class="section-label">Resources</span>
+                <h2 class="section-heading">Productivity insights</h2>
+            </div>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-img" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);">📚
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-tag">Productivity</span>
+                        <h3>The Pomodoro Technique: A Complete Guide</h3>
+                        <p>Learn how 25-minute focus sessions can transform your work habits.</p>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-img" style="background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);">⏰</div>
+                    <div class="blog-content">
+                        <span class="blog-tag">Time Management</span>
+                        <h3>Mastering the Eisenhower Matrix</h3>
+                        <p>Prioritize tasks like a president with this proven framework.</p>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-img" style="background: linear-gradient(135deg, #10b981 0%, #34d399 100%);">🧠
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-tag">Focus</span>
+                        <h3>Deep Work: How to Achieve Flow State</h3>
+                        <p>Strategies for eliminating distractions and entering deep focus.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Founder Quote -->
+    <section class="founder-section" id="founder">
+        <div class="container">
+            <div class="founder-card">
+                <div class="founder-quote">
+                    <div class="quote-mark">"</div>
+                    <blockquote>
+                        I've always believed that technology should empower us, making complex tasks simpler and our
+                        goals more attainable. DailyPlanner is the culmination of this belief – an intelligent,
+                        intuitive tool designed to cut through the noise of daily life. We're not just building an app;
+                        we're crafting a companion to help you navigate your days with clarity, focus, and a renewed
+                        sense of purpose.
+                    </blockquote>
+                </div>
+                <div class="founder-info">
+                    <div class="founder-avatar">AD</div>
+                    <div class="founder-details">
+                        <strong class="founder-name">Aashish Dubey</strong>
+                        <span class="founder-title">Founder & CEO</span>
+                        <span class="founder-company">DailyPlanner (AASHUKAY TECH)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Final CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <h2>Ready to transform your productivity?</h2>
+                <p>Join thousands of students and professionals who are mastering their time with DailyPlanner.</p>
+                <a href="https://play.google.com/store/apps/details?id=com.ashukaytech.daily_planner" class="btn-cta"
+                    target="_blank">Get Started for Free</a>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- Section 8: Team Scroll -->
+    <section class="team-section">
+        <div class="container">
+            <div class="team-header-center">
+                <span class="section-label">Who We Are</span>
+                <h2 class="section-heading">Meet the team behind the magic</h2>
+            </div>
+        </div>
+        <div class="team-marquee-wrapper">
+            <div class="team-track">
+                <!-- Group 1 -->
+                <div class="team-group">
+                    <div class="team-card">
+                        <div class="member-img gradient-1">AD</div>
+                        <div class="member-data">
+                            <h4>Aashish Dubey</h4>
+                            <span>Founder & CEO</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="member-img gradient-2">JS</div>
+                        <div class="member-data">
+                            <h4>James Smith</h4>
+                            <span>Head of Engineering</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="member-img gradient-3">EM</div>
+                        <div class="member-data">
+                            <h4>Emma Miller</h4>
+                            <span>Product Design</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="member-img gradient-4">RK</div>
+                        <div class="member-data">
+                            <h4>Rahul Kumar</h4>
+                            <span>AI Research</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="member-img gradient-1">SL</div>
+                        <div class="member-data">
+                            <h4>Sarah Lee</h4>
+                            <span>Marketing Lead</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="member-img gradient-2">DJ</div>
+                        <div class="member-data">
+                            <h4>David Jones</h4>
+                            <span>Mobile Dev</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="member-img gradient-3">AP</div>
+                        <div class="member-data">
+                            <h4>Ana Patel</h4>
+                            <span>Customer Success</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Group 1 Duplicate for infinite scroll -->
+                <div class="team-group">
+                    <div class="team-card">
+                        <div class="member-img gradient-1">AD</div>
+                        <div class="member-data">
+                            <h4>Aashish Dubey</h4>
+                            <span>Founder & CEO</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="member-img gradient-2">JS</div>
+                        <div class="member-data">
+                            <h4>James Smith</h4>
+                            <span>Head of Engineering</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="member-img gradient-3">EM</div>
+                        <div class="member-data">
+                            <h4>Emma Miller</h4>
+                            <span>Product Design</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="member-img gradient-4">RK</div>
+                        <div class="member-data">
+                            <h4>Rahul Kumar</h4>
+                            <span>AI Research</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="member-img gradient-1">SL</div>
+                        <div class="member-data">
+                            <h4>Sarah Lee</h4>
+                            <span>Marketing Lead</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="member-img gradient-2">DJ</div>
+                        <div class="member-data">
+                            <h4>David Jones</h4>
+                            <span>Mobile Dev</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="member-img gradient-3">AP</div>
+                        <div class="member-data">
+                            <h4>Ana Patel</h4>
+                            <span>Customer Success</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo"><img src="logo.png" alt="DailyPlanner Logo"
+                            class="logo-img"><span>DailyPlanner</span></a>
+                    <p>Created to bring structure, calm, and confidence to your daily life.</p>
+                    <p class="footer-made">Made with 💜 in India</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#comparison">Compare</a></li>
+                        <li><a href="#demo">Demo</a></li>
+                        <li><a href="https://play.google.com/store/apps/details?id=com.ashukaytech.daily_planner"
+                                target="_blank">Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://x.com/aashishdubey01" target="_blank" class="social-link"
+                            aria-label="X (Twitter)">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/dailyplannerapp_/" target="_blank" class="social-link"
+                            aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@DailyPlannerApp" target="_blank" class="social-link"
+                            aria-label="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 AASHUKAY TECH Private Limited. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal" id="download-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">×</button>
+            <div class="modal-icon">🎉</div>
+            <h3>You're doing great!</h3>
+            <p>Get the full experience with the DailyPlanner app.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.ashukaytech.daily_planner" class="btn-cta"
+                target="_blank">Download App</a>
+            <button class="modal-dismiss" id="modal-dismiss">Continue Demo</button>
+        </div>
+    </div>
+    <div class="modal" id="add-task-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <h3>Add New Task</h3>
+            <input type="text" id="new-task-input" placeholder="Task name...">
+            <input type="time" id="new-task-time" value="09:00">
+            <div class="modal-actions">
+                <button class="modal-cancel" id="task-cancel">Cancel</button>
+                <button class="modal-confirm" id="task-confirm">Add Task</button>
+            </div>
+        </div>
+    </div>
+
+    <script>window.MISTRAL_API_KEY = 'XyI437mQ5QpcxyB92pFBRANbnyaIv0Eo';</script>
+    <script src="script.js"></script>
+</body>
+
+</html>
