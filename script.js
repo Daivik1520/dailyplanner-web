@@ -134,6 +134,55 @@ document.addEventListener('DOMContentLoaded', () => {
         new Magnetic(btn);
     });
 
+    // Scroll Reveal Animations
+    initScrollReveal();
+
+    function initScrollReveal() {
+        // Elements that reveal individually
+        const revealSelectors = [
+            '.feature-band-card',
+            '.blog-card',
+            '.feature-card',
+            '.founder-card',
+            '.cta-card',
+            '.comparison-table-wrap',
+            '.review-card',
+            '.reviews-header',
+            '.features-header',
+            '.blog-header',
+            '.comparison-header',
+            '.hero-content-center',
+        ];
+
+        revealSelectors.forEach(sel => {
+            document.querySelectorAll(sel).forEach(el => {
+                el.classList.add('reveal');
+            });
+        });
+
+        // Stagger containers
+        document.querySelectorAll('.feature-bands-stack, .blog-grid, .features-grid, .reviews-grid').forEach(el => {
+            el.classList.add('reveal-stagger');
+            el.classList.add('reveal');
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    }
+
     // Website Navigation
     function initNavigation(lenisInstance) {
         const navToggle = document.getElementById('nav-toggle');

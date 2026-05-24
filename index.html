@@ -39,11 +39,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 
-<body>
+<body id="top">
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">
+            <a href="#top" class="nav-logo">
                 <img src="logo.png" alt="DailyPlanner Logo" class="logo-img">
                 <span>DailyPlanner</span>
             </a>
@@ -142,31 +142,12 @@
 
     <!-- Section 2: Sticky Showcase Demo -->
     <section class="demo-section" id="demo">
-        <div class="showcase-wrapper">
-            <!-- Left Info -->
-            <div class="showcase-scroll side-left">
-                <div class="showcase-item" data-step="1">
-                    <span class="section-label">01. Smart Planning</span>
-                    <h2 class="section-heading">AI Timetable Generator</h2>
-                    <p class="section-desc">DailyPlanner automatically builds a personalized schedule based on your
-                        energy levels and priorities.</p>
-                </div>
-                <div class="showcase-item" data-step="2">
-                    <span class="section-label">02. Deep Work</span>
-                    <h2 class="section-heading">Distraction Blocking</h2>
-                    <p class="section-desc">Lock your phone and block distracting apps during your focus sessions to
-                        achieve massive productivity.</p>
-                </div>
-                <div class="showcase-item" data-step="3">
-                    <span class="section-label">03. Smart Priority</span>
-                    <h2 class="section-heading">Eisenhower Matrix</h2>
-                    <p class="section-desc">Prioritize tasks using the 4-quadrant system, making sure you always work on
-                        what truly matters.</p>
-                </div>
-            </div>
-
-            <!-- Sticky Phone (Center) -->
+        <div class="showcase-wrapper">            <!-- Sticky Phone (Center) -->
             <div class="sticky-phone-container">
+                <div class="mobile-demo-header">
+                    <span class="section-label">Interactive Demo</span>
+                    <h2 class="section-heading">Try it yourself</h2>
+                </div>
                 <div class="demo-phone-wrap">
                     <div class="phone-mockup" id="phone-demo">
                         <div class="phone-notch"></div>
@@ -570,27 +551,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Right Info (Alternative or Matching) -->
-            <div class="showcase-scroll side-right">
-                <div class="showcase-item" data-step="1">
-                    <ul class="demo-features-light">
-                        <li><span class="check">✓</span> Dynamic Scheduling</li>
-                        <li><span class="check">✓</span> Habit Loops</li>
-                    </ul>
-                </div>
-                <div class="showcase-item" data-step="2">
-                    <ul class="demo-features-light">
-                        <li><span class="check">✓</span> App Blocker</li>
-                        <li><span class="check">✓</span> Focus Analytics</li>
-                    </ul>
-                </div>
-                <div class="showcase-item" data-step="3">
-                    <ul class="demo-features-light">
-                        <li><span class="check">✓</span> Priority Sorting</li>
-                        <li><span class="check">✓</span> Goal Alignment</li>
-                    </ul>
-                </div>
             </div>
         </div>
     </section>
@@ -667,43 +627,187 @@
         </div>
     </section>
 
-    <!-- Section 4: Features Grid -->
+    <!-- Section 4: Features (Journella-style Feature Bands) -->
     <section class="features-section" id="features">
         <div class="container">
             <div class="features-header">
                 <span class="section-label">Powerful Features</span>
                 <h2 class="section-heading">Everything you need for <br>peak productivity</h2>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🗓</div>
-                    <h3>AI Timetable Generator</h3>
-                    <p>Automatically builds personalized daily plans around your goals and habits.</p>
+
+            <div class="feature-bands-stack">
+                <!-- Feature Band 1: AI Timetable -->
+                <div class="feature-band-card">
+                    <div class="fb-copy">
+                        <h2>Build your perfect day, automatically.</h2>
+                        <p>DailyPlanner's AI Timetable Generator creates personalized schedules based on your energy levels, priorities, and habits — so you always know what to do next.</p>
+                        <div class="fb-points">
+                            <div class="fb-point">
+                                <strong>Smart scheduling</strong>
+                                Tasks are placed at optimal times based on your energy patterns throughout the day.
+                            </div>
+                            <div class="fb-point">
+                                <strong>Adaptive planning</strong>
+                                Your schedule adjusts when priorities shift, keeping your day on track without manual effort.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fb-visual">
+                        <div class="fb-mockup">
+                            <div class="fb-mockup-header">
+                                <span class="fb-mockup-dot"></span>
+                                <span class="fb-mockup-title">AI Schedule</span>
+                                <span class="fb-mockup-dot"></span>
+                            </div>
+                            <div class="fb-mockup-item fb-item-blue">
+                                <span class="fb-item-time">8:00 AM</span>
+                                <span class="fb-item-label">🏃 Morning Workout</span>
+                            </div>
+                            <div class="fb-mockup-item fb-item-red">
+                                <span class="fb-item-time">10:00 AM</span>
+                                <span class="fb-item-label">🧠 Deep Work Session</span>
+                            </div>
+                            <div class="fb-mockup-item fb-item-green">
+                                <span class="fb-item-time">12:30 PM</span>
+                                <span class="fb-item-label">🍽️ Lunch Break</span>
+                            </div>
+                            <div class="fb-mockup-item fb-item-purple">
+                                <span class="fb-item-time">2:00 PM</span>
+                                <span class="fb-item-label">👥 Team Meeting</span>
+                            </div>
+                            <div class="fb-mockup-item fb-item-amber">
+                                <span class="fb-item-time">4:00 PM</span>
+                                <span class="fb-item-label">📖 Study & Review</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Focus Mode</h3>
-                    <p>Block distracting apps and websites while you study or work deeply.</p>
+
+                <!-- Feature Band 2: Focus Mode (reversed) -->
+                <div class="feature-band-card fb-reverse">
+                    <div class="fb-copy">
+                        <h2>Lock in, block out, get it done.</h2>
+                        <p>Focus Mode blocks distracting apps and locks your phone during work sessions. Combined with Pomodoro timers, you'll achieve deep concentration every time.</p>
+                        <div class="fb-points">
+                            <div class="fb-point">
+                                <strong>Distraction blocking</strong>
+                                Social media and distracting apps are paused so you stay in the zone without temptation.
+                            </div>
+                            <div class="fb-point">
+                                <strong>Pomodoro sessions</strong>
+                                Choose 25-minute sprints, 90-minute deep work, or custom durations that match your rhythm.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fb-visual">
+                        <div class="fb-mockup fb-mockup-focus">
+                            <div class="fb-focus-ring">
+                                <svg viewBox="0 0 120 120">
+                                    <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(227,46,59,0.15)" stroke-width="6"/>
+                                    <circle cx="60" cy="60" r="52" fill="none" stroke="#e32e3b" stroke-width="6" stroke-dasharray="270 327" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                                </svg>
+                                <div class="fb-focus-inner">
+                                    <span class="fb-focus-time">18:42</span>
+                                    <span class="fb-focus-label">remaining</span>
+                                </div>
+                            </div>
+                            <div class="fb-focus-badge">🔒 FOCUS ACTIVE</div>
+                            <div class="fb-focus-stats">
+                                <div class="fb-stat"><span class="fb-stat-num">3</span><span class="fb-stat-label">Today</span></div>
+                                <div class="fb-stat"><span class="fb-stat-num">12</span><span class="fb-stat-label">This Week</span></div>
+                                <div class="fb-stat"><span class="fb-stat-num">7</span><span class="fb-stat-label">Streak 🔥</span></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🍅</div>
-                    <h3>Pomodoro Sessions</h3>
-                    <p>25-minute work sprints with built-in timers and smart reminders.</p>
+
+                <!-- Feature Band 3: Eisenhower Matrix -->
+                <div class="feature-band-card">
+                    <div class="fb-copy">
+                        <h2>Prioritize what truly matters.</h2>
+                        <p>The Eisenhower Matrix helps you sort tasks by urgency and importance, so you always work on the right things instead of just the loudest ones.</p>
+                        <div class="fb-points">
+                            <div class="fb-point">
+                                <strong>Four-quadrant system</strong>
+                                Instantly see what to do now, schedule later, delegate, or drop entirely.
+                            </div>
+                            <div class="fb-point">
+                                <strong>Clear priorities</strong>
+                                Stop spending energy on tasks that feel urgent but don't actually move you forward.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fb-visual">
+                        <div class="fb-mockup fb-mockup-matrix">
+                            <div class="fb-matrix-grid">
+                                <div class="fb-matrix-header">
+                                    <span></span><span>URGENT</span><span>NOT URGENT</span>
+                                </div>
+                                <div class="fb-matrix-row">
+                                    <span class="fb-matrix-label">IMP.</span>
+                                    <div class="fb-matrix-cell fb-cell-do">
+                                        <strong>DO</strong>
+                                        <span>Emergency meeting</span>
+                                        <span>Fix critical bug</span>
+                                    </div>
+                                    <div class="fb-matrix-cell fb-cell-decide">
+                                        <strong>DECIDE</strong>
+                                        <span>Plan goals</span>
+                                        <span>Read chapter 5</span>
+                                    </div>
+                                </div>
+                                <div class="fb-matrix-row">
+                                    <span class="fb-matrix-label">NOT</span>
+                                    <div class="fb-matrix-cell fb-cell-delegate">
+                                        <strong>DELEGATE</strong>
+                                        <span>Reply to emails</span>
+                                    </div>
+                                    <div class="fb-matrix-cell fb-cell-delete">
+                                        <strong>DELETE</strong>
+                                        <span>Social scrolling</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Eisenhower Matrix</h3>
-                    <p>Prioritize tasks based on urgency and importance effectively.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💬</div>
-                    <h3>AI Assistant</h3>
-                    <p>Get personalized productivity advice and planning help.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📈</div>
-                    <h3>Progress Tracking</h3>
-                    <p>Track study hours, streaks, and habits with beautiful analytics.</p>
+
+                <!-- Feature Band 4: AI Assistant (reversed) -->
+                <div class="feature-band-card fb-reverse">
+                    <div class="fb-copy">
+                        <h2>Ask DailyPlanner when you need a next step.</h2>
+                        <p>Your built-in AI assistant helps plan your day, suggests focus strategies, and gives personalized productivity advice — all without leaving the app.</p>
+                        <div class="fb-points">
+                            <div class="fb-point">
+                                <strong>Instant planning help</strong>
+                                Say "plan my day" and get a structured schedule based on your open tasks.
+                            </div>
+                            <div class="fb-point">
+                                <strong>Productivity coaching</strong>
+                                Get tips on Pomodoro technique, time blocking, and deep work tailored to your habits.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fb-visual">
+                        <div class="fb-mockup fb-mockup-chat">
+                            <div class="fb-chat-header">
+                                <span class="fb-chat-avatar">🤖</span>
+                                <div>
+                                    <span class="fb-chat-name">AI Assistant</span>
+                                    <span class="fb-chat-status"><span class="fb-status-dot"></span> Online</span>
+                                </div>
+                            </div>
+                            <div class="fb-chat-bubble fb-bubble-bot">
+                                <p>Hi! 👋 I'm your productivity assistant. How can I help you today?</p>
+                            </div>
+                            <div class="fb-chat-bubble fb-bubble-user">
+                                <p>Plan my day</p>
+                            </div>
+                            <div class="fb-chat-bubble fb-bubble-bot">
+                                <p>📋 Here's your optimized plan: Start with deep work at 9 AM when focus peaks, take a Pomodoro break at 10:30, then tackle meetings after lunch! 💪</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -756,17 +860,32 @@
                     <blockquote>
                         I've always believed that technology should empower us, making complex tasks simpler and our
                         goals more attainable. DailyPlanner is the culmination of this belief – an intelligent,
-                        intuitive tool designed to cut through the noise of daily life. We're not just building an app;
-                        we're crafting a companion to help you navigate your days with clarity, focus, and a renewed
-                        sense of purpose.
+                        intuitive tool designed to cut through the noise of daily life.
                     </blockquote>
                 </div>
                 <div class="founder-info">
-                    <div class="founder-avatar">AD</div>
+                    <img src="founder.jpeg" alt="Aashish Dubey" class="founder-avatar">
                     <div class="founder-details">
                         <strong class="founder-name">Aashish Dubey</strong>
                         <span class="founder-title">Founder & CEO</span>
                         <span class="founder-company">DailyPlanner (AASHUKAY TECH)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="founder-card" style="margin-top: 24px;">
+                <div class="founder-quote">
+                    <div class="quote-mark">"</div>
+                    <blockquote>
+                        Every line of code in DailyPlanner is written with one goal — to make your day feel lighter. We obsess over the small details so you don't have to.
+                    </blockquote>
+                </div>
+                <div class="founder-info">
+                    <img src="developer.jpeg" alt="Shlok Goyal" class="founder-avatar">
+                    <div class="founder-details">
+                        <strong class="founder-name">Shlok Goyal</strong>
+                        <span class="founder-title">Lead Developer</span>
+                        <span class="founder-company">DailyPlanner</span>
                     </div>
                 </div>
             </div>
@@ -787,117 +906,155 @@
 
     </section>
 
-    <!-- Section 8: Team Scroll -->
-    <section class="team-section">
+    <!-- Section 8: App Reviews (Scrolling Marquee) -->
+    <section class="reviews-section" id="reviews">
         <div class="container">
-            <div class="team-header-center">
-                <span class="section-label">Who We Are</span>
-                <h2 class="section-heading">Meet the team behind the magic</h2>
+            <div class="reviews-header">
+                <span class="section-label">What Users Say</span>
+                <h2 class="section-heading">Real reviews from real users</h2>
+                <div class="reviews-rating-summary">
+                    <span class="reviews-stars">★★★★★</span>
+                    <span class="reviews-avg">4.8 on Google Play</span>
+                </div>
             </div>
         </div>
-        <div class="team-marquee-wrapper">
-            <div class="team-track">
+        <div class="reviews-marquee-wrapper">
+            <div class="reviews-track">
                 <!-- Group 1 -->
-                <div class="team-group">
-                    <div class="team-card">
-                        <div class="member-img gradient-1">AD</div>
-                        <div class="member-data">
-                            <h4>Aashish Dubey</h4>
-                            <span>Founder & CEO</span>
+                <div class="reviews-group">
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Amazing app! The daily planner is super simple to use and really helps me stay organised. The reminders are accurate, the layout is clean, and it actually makes planning my day enjoyable."</p>
+                        <div class="review-author">
+                            <div class="review-avatar">MB</div>
+                            <div class="review-author-info">
+                                <strong>Manav Bhardwaj</strong>
+                                <span>Google Play Review</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="team-card">
-                        <div class="member-img gradient-2">JS</div>
-                        <div class="member-data">
-                            <h4>James Smith</h4>
-                            <span>Head of Engineering</span>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"I've been using this daily planner app for a while now, and it has genuinely transformed the way I organize my day. The interface is clean, simple, and extremely user-friendly."</p>
+                        <div class="review-author">
+                            <div class="review-avatar">JS</div>
+                            <div class="review-author-info">
+                                <strong>Jatin Sharma</strong>
+                                <span>Google Play Review</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="team-card">
-                        <div class="member-img gradient-3">EM</div>
-                        <div class="member-data">
-                            <h4>Emma Miller</h4>
-                            <span>Product Design</span>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Very useful because it reminds us about our tasks and helps reduce distraction. Easy to access and understand, smooth app with secure handling. Makes me focused and productive."</p>
+                        <div class="review-author">
+                            <div class="review-avatar">VG</div>
+                            <div class="review-author-info">
+                                <strong>Vishal Gulia</strong>
+                                <span>Google Play Review</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="team-card">
-                        <div class="member-img gradient-4">RK</div>
-                        <div class="member-data">
-                            <h4>Rahul Kumar</h4>
-                            <span>AI Research</span>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"This app is a game changer for anyone who wants to be more productive. The AI scheduling is brilliant — it plans my day around my energy levels. Love the Pomodoro timer too!"</p>
+                        <div class="review-author">
+                            <div class="review-avatar">PK</div>
+                            <div class="review-author-info">
+                                <strong>Priya Kapoor</strong>
+                                <span>Google Play Review</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="team-card">
-                        <div class="member-img gradient-1">SL</div>
-                        <div class="member-data">
-                            <h4>Sarah Lee</h4>
-                            <span>Marketing Lead</span>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Best planner app I've used. Clean design, no ads, and the Eisenhower Matrix feature helps me prioritize what actually matters. Highly recommended for students!"</p>
+                        <div class="review-author">
+                            <div class="review-avatar">AT</div>
+                            <div class="review-author-info">
+                                <strong>Arjun Thakur</strong>
+                                <span>Google Play Review</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="team-card">
-                        <div class="member-img gradient-2">DJ</div>
-                        <div class="member-data">
-                            <h4>David Jones</h4>
-                            <span>Mobile Dev</span>
-                        </div>
-                    </div>
-                    <div class="team-card">
-                        <div class="member-img gradient-3">AP</div>
-                        <div class="member-data">
-                            <h4>Ana Patel</h4>
-                            <span>Customer Success</span>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★☆</div>
+                        <p class="review-text">"Really helpful app for managing daily tasks. The focus mode actually blocks distracting apps which is great. The AI assistant gives solid advice for planning study sessions."</p>
+                        <div class="review-author">
+                            <div class="review-avatar">RS</div>
+                            <div class="review-author-info">
+                                <strong>Rohit Singh</strong>
+                                <span>Google Play Review</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- Group 1 Duplicate for infinite scroll -->
-                <div class="team-group">
-                    <div class="team-card">
-                        <div class="member-img gradient-1">AD</div>
-                        <div class="member-data">
-                            <h4>Aashish Dubey</h4>
-                            <span>Founder & CEO</span>
+                <!-- Group 2 (Duplicate for infinite scroll) -->
+                <div class="reviews-group">
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Amazing app! The daily planner is super simple to use and really helps me stay organised. The reminders are accurate, the layout is clean, and it actually makes planning my day enjoyable."</p>
+                        <div class="review-author">
+                            <div class="review-avatar">MB</div>
+                            <div class="review-author-info">
+                                <strong>Manav Bhardwaj</strong>
+                                <span>Google Play Review</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="team-card">
-                        <div class="member-img gradient-2">JS</div>
-                        <div class="member-data">
-                            <h4>James Smith</h4>
-                            <span>Head of Engineering</span>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"I've been using this daily planner app for a while now, and it has genuinely transformed the way I organize my day. The interface is clean, simple, and extremely user-friendly."</p>
+                        <div class="review-author">
+                            <div class="review-avatar">JS</div>
+                            <div class="review-author-info">
+                                <strong>Jatin Sharma</strong>
+                                <span>Google Play Review</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="team-card">
-                        <div class="member-img gradient-3">EM</div>
-                        <div class="member-data">
-                            <h4>Emma Miller</h4>
-                            <span>Product Design</span>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Very useful because it reminds us about our tasks and helps reduce distraction. Easy to access and understand, smooth app with secure handling. Makes me focused and productive."</p>
+                        <div class="review-author">
+                            <div class="review-avatar">VG</div>
+                            <div class="review-author-info">
+                                <strong>Vishal Gulia</strong>
+                                <span>Google Play Review</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="team-card">
-                        <div class="member-img gradient-4">RK</div>
-                        <div class="member-data">
-                            <h4>Rahul Kumar</h4>
-                            <span>AI Research</span>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"This app is a game changer for anyone who wants to be more productive. The AI scheduling is brilliant — it plans my day around my energy levels. Love the Pomodoro timer too!"</p>
+                        <div class="review-author">
+                            <div class="review-avatar">PK</div>
+                            <div class="review-author-info">
+                                <strong>Priya Kapoor</strong>
+                                <span>Google Play Review</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="team-card">
-                        <div class="member-img gradient-1">SL</div>
-                        <div class="member-data">
-                            <h4>Sarah Lee</h4>
-                            <span>Marketing Lead</span>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Best planner app I've used. Clean design, no ads, and the Eisenhower Matrix feature helps me prioritize what actually matters. Highly recommended for students!"</p>
+                        <div class="review-author">
+                            <div class="review-avatar">AT</div>
+                            <div class="review-author-info">
+                                <strong>Arjun Thakur</strong>
+                                <span>Google Play Review</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="team-card">
-                        <div class="member-img gradient-2">DJ</div>
-                        <div class="member-data">
-                            <h4>David Jones</h4>
-                            <span>Mobile Dev</span>
-                        </div>
-                    </div>
-                    <div class="team-card">
-                        <div class="member-img gradient-3">AP</div>
-                        <div class="member-data">
-                            <h4>Ana Patel</h4>
-                            <span>Customer Success</span>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★☆</div>
+                        <p class="review-text">"Really helpful app for managing daily tasks. The focus mode actually blocks distracting apps which is great. The AI assistant gives solid advice for planning study sessions."</p>
+                        <div class="review-author">
+                            <div class="review-avatar">RS</div>
+                            <div class="review-author-info">
+                                <strong>Rohit Singh</strong>
+                                <span>Google Play Review</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -910,7 +1067,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="footer-logo"><img src="logo.png" alt="DailyPlanner Logo"
+                    <a href="#top" class="footer-logo"><img src="logo.png" alt="DailyPlanner Logo"
                             class="logo-img"><span>DailyPlanner</span></a>
                     <p>Created to bring structure, calm, and confidence to your daily life.</p>
                     <p class="footer-made">Made with 💜 in India</p>
@@ -928,10 +1085,10 @@
                 <div class="footer-links">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="#">About</a></li>
+                        <li><a href="javascript:void(0)">About</a></li>
                         <li><a href="#blog">Blog</a></li>
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Terms</a></li>
+                        <li><a href="javascript:void(0)">Privacy</a></li>
+                        <li><a href="javascript:void(0)">Terms</a></li>
                     </ul>
                 </div>
                 <div class="footer-social">
@@ -952,6 +1109,11 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="footer-huge-text">
+                DAILYPLANNER
+            </div>
+
             <div class="footer-bottom">
                 <p>© 2025 AASHUKAY TECH Private Limited. All rights reserved.</p>
             </div>
@@ -984,7 +1146,7 @@
         </div>
     </div>
 
-    <script>window.MISTRAL_API_KEY = 'XyI437mQ5QpcxyB92pFBRANbnyaIv0Eo';</script>
+    <script>window.MISTRAL_API_KEY = 'YOUR_MISTRAL_API_KEY_HERE';</script>
     <script src="script.js"></script>
 </body>
 
