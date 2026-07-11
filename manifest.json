@@ -1,0 +1,17 @@
+{
+  "name": "DailyPlanner App",
+  "short_name": "DailyPlanner",
+  "description": "The minimalist AI-powered daily planner that helps you focus and get more done.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0d0d0d",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

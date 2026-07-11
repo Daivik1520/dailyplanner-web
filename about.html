@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="About DailyPlanner - Our mission and story.">
+    <title>About Us — DailyPlanner</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400..800&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <style>
+        .page-header {
+            padding: 120px 20px 50px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: var(--text);
+            font-family: var(--font-heading);
+            letter-spacing: -0.03em;
+        }
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .page-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        @media (min-width: 768px) {
+            .page-header {
+                padding: 160px 20px 80px;
+            }
+            .page-header h1 {
+                font-size: 4rem;
+            }
+            .page-header p {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body id="top">
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="logo.png" alt="DailyPlanner Logo" class="logo-img">
+                <span>DailyPlanner</span>
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="index.html#comparison" class="nav-link">Compare</a>
+                <a href="index.html#roi" class="nav-link">Results</a>
+                <a href="how-to-use.html" class="nav-link">How It Works</a>
+                <a href="https://play.google.com/store/apps/details?id=com.ashukaytech.daily_planner" class="nav-cta"
+                    target="_blank">Download</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header reveal">
+            <div class="container">
+                <h1>Redefining Productivity</h1>
+                <p>We believe that managing your time shouldn't take more time than doing the actual work.</p>
+            </div>
+        </section>
+
+        <section class="page-content reveal">
+            <div class="bento-grid">
+                
+                <!-- Mission (Wide) -->
+                <div class="bento-item bento-wide reveal">
+                    <div class="bento-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <h3>Our Mission</h3>
+                    <p>Our mission is simple: to help you focus on what truly matters. In a world full of distractions, finding the time to work deeply, rest properly, and connect with loved ones can be a challenge. We use cutting-edge AI and intuitive design to remove the friction from planning, giving you back hours of your week.</p>
+                </div>
+
+                <!-- AI Driven (Narrow) -->
+                <div class="bento-item bento-narrow reveal">
+                    <div class="bento-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h3>AI-Driven</h3>
+                    <p>We don't just give you a blank calendar. Our AI analyzes your natural energy rhythms and intelligently slots deep work when you're most focused, and shallow tasks when you're tired.</p>
+                </div>
+
+                <!-- Community (Half) -->
+                <div class="bento-item bento-half reveal">
+                    <div class="bento-icon"><i class="fa-solid fa-users"></i></div>
+                    <h3>Community First</h3>
+                    <p>We are constantly evolving, driven by the feedback of our incredible community of students, athletes, and entrepreneurs. Our new Curated Timetables feature was born directly from user feedback.</p>
+                </div>
+
+                <!-- Privacy (Half) -->
+                <div class="bento-item bento-half reveal">
+                    <div class="bento-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Privacy Focused</h3>
+                    <p>Your calendar is your most private asset. We built DailyPlanner with bank-level encryption and a strict policy of never selling your personal scheduling data to third parties.</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo"><span>DailyPlanner</span></a>
+                    <p>Created to bring structure, calm, and confidence to your daily life.</p>
+                    <p class="footer-made">Made with 💜 in India</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="how-to-use.html">How to Use</a></li>
+                        <li><a href="index.html#roi">Results</a></li>
+                        <li><a href="https://play.google.com/store/apps/details?id=com.ashukaytech.daily_planner"
+                                target="_blank">Android App</a></li>
+                        <li><a href="https://apps.apple.com/in/app/the-dailyplanner-app/id6771750050"
+                                target="_blank">iOS App</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                        <li><a href="terms.html">Terms</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://x.com/aashishdubey01" target="_blank" class="social-link"
+                            aria-label="X (Twitter)">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/dailyplannerapp_/" target="_blank" class="social-link"
+                            aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@DailyPlannerApp" target="_blank" class="social-link"
+                            aria-label="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-huge-text">
+                DAILYPLANNER
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025-2026 AASHUKAY TECH Private Limited. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

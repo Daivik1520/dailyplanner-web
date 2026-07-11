@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="How DailyPlanner Works - Three simple steps to transform your productivity.">
+    <title>How It Works — DailyPlanner</title>
+
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400..800&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <style>
+        .hiw-hero {
+            padding: 120px 20px 50px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+        }
+        .hiw-hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+            font-family: var(--font-heading);
+            color: var(--text);
+        }
+        .hiw-hero p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .hiw-steps {
+            padding: 50px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hiw-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        .hiw-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 70px;
+            bottom: -30px;
+            width: 2px;
+            background: var(--border);
+            z-index: 1;
+        }
+        .hiw-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            z-index: 2;
+            box-shadow: 0 10px 20px rgba(10, 10, 10, 0.2);
+        }
+        .hiw-content {
+            padding-top: 10px;
+        }
+        .hiw-content h2 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+        .hiw-content p {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        .hiw-cta {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--bg-alt);
+        }
+        .hiw-cta h2 {
+            margin-bottom: 24px;
+            font-size: 1.8rem;
+        }
+
+        @media (min-width: 768px) {
+            .hiw-hero {
+                padding: 160px 0 80px;
+            }
+            .hiw-hero h1 {
+                font-size: 3rem;
+            }
+            .hiw-hero p {
+                font-size: 1.2rem;
+            }
+            .hiw-steps {
+                padding: 80px 0;
+            }
+            .hiw-step {
+                flex-direction: row;
+                align-items: flex-start;
+                text-align: left;
+                gap: 30px;
+            }
+            .hiw-step:not(:last-child)::after {
+                left: 35px;
+                transform: none;
+                top: 80px;
+                bottom: -40px;
+            }
+            .hiw-number {
+                width: 70px;
+                height: 70px;
+                font-size: 1.5rem;
+            }
+            .hiw-content {
+                padding-top: 15px;
+            }
+            .hiw-content h2 {
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+            }
+            .hiw-content p {
+                font-size: 1.1rem;
+            }
+            .hiw-cta {
+                padding: 80px 0;
+            }
+            .hiw-cta h2 {
+                font-size: 2.2rem;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="logo.png" alt="DailyPlanner Logo" class="logo-img">
+                <span>DailyPlanner</span>
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="index.html#comparison" class="nav-link">Compare</a>
+                <a href="index.html#roi" class="nav-link">Results</a>
+                <a href="how-to-use.html" class="nav-link active">How It Works</a>
+                <a href="https://play.google.com/store/apps/details?id=com.ashukaytech.daily_planner" class="nav-cta"
+                    target="_blank">Download</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hiw-hero">
+            <div class="container reveal">
+                <h1>How DailyPlanner Works</h1>
+                <p>Three simple steps to transform your productivity and take back control of your day.</p>
+            </div>
+        </section>
+
+        <section class="hiw-steps">
+            <div class="container">
+                <div class="hiw-step reveal">
+                    <div class="hiw-number"><i class="fa-solid fa-download"></i></div>
+                    <div class="hiw-content">
+                        <h2>1. Download the App</h2>
+                        <p>Get DailyPlanner completely free from the Google Play Store or Apple App Store. There are no subscriptions or hidden fees. Installation takes less than 30 seconds.</p>
+                    </div>
+                </div>
+
+                <div class="hiw-step reveal">
+                    <div class="hiw-number"><i class="fa-solid fa-robot"></i></div>
+                    <div class="hiw-content">
+                        <h2>2. Tell AI Your Goals</h2>
+                        <p>Simply dump your tasks, priorities, and habits into the app. Our built-in AI assistant analyzes your workload and builds a perfectly balanced, personalized schedule that optimizes for your peak energy hours.</p>
+                    </div>
+                </div>
+
+                <div class="hiw-step reveal">
+                    <div class="hiw-number"><i class="fa-solid fa-rocket"></i></div>
+                    <div class="hiw-content">
+                        <h2>3. Follow Your Plan</h2>
+                        <p>Start your optimized day. Use the built-in Focus Mode to block distractions during deep work sessions. Stick to the plan and watch your productivity soar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="hiw-cta">
+            <div class="container reveal">
+                <h2>Ready to get started?</h2>
+                <div class="cta-buttons-group">
+                    <a href="https://play.google.com/store/apps/details?id=com.ashukaytech.daily_planner" class="btn-cta" target="_blank"><i class="fa-brands fa-google-play"></i> Download for Android</a>
+                    <a href="https://apps.apple.com/in/app/the-dailyplanner-app/id6771750050" class="btn-cta btn-cta-apple" target="_blank"><i class="fa-brands fa-apple"></i> Download for iOS</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo"><span>DailyPlanner</span></a>
+                    <p>Created to bring structure, calm, and confidence to your daily life.</p>
+                    <p class="footer-made">Made with 💜 in India</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="how-to-use.html">How to Use</a></li>
+                        <li><a href="index.html#roi">Results</a></li>
+                        <li><a href="https://play.google.com/store/apps/details?id=com.ashukaytech.daily_planner"
+                                target="_blank">Android App</a></li>
+                        <li><a href="https://apps.apple.com/in/app/the-dailyplanner-app/id6771750050"
+                                target="_blank">iOS App</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                        <li><a href="terms.html">Terms</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://x.com/aashishdubey01" target="_blank" class="social-link"
+                            aria-label="X (Twitter)">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/dailyplannerapp_/" target="_blank" class="social-link"
+                            aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@DailyPlannerApp" target="_blank" class="social-link"
+                            aria-label="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-huge-text">
+                DAILYPLANNER
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025-2026 AASHUKAY TECH Private Limited. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let timerTotal = 25 * 60;
     let chatHistory = [];
 
+    // Scroll Reveal Animations
+    initScrollReveal();
+
     // Initialize Lenis Smooth Scroll
     const lenis = new Lenis({
         duration: 1.2,
@@ -118,24 +121,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize Effects
     initNavigation(lenis);
-    initAppNavigation();
-    initTimer();
-    initChat();
-    initTasks();
-    initModals();
-    initCalendar();
-    updateHomeScreen();
-    setGreeting();
-    setCurrentDate();
-    updateInsights();
 
     // Apply Magnetic to major buttons
     document.querySelectorAll('.btn-hero, .btn-hero-outline, .btn-cta, .nav-cta, .social-link').forEach(btn => {
         new Magnetic(btn);
     });
 
-    // Scroll Reveal Animations
-    initScrollReveal();
+    try {
+        initAppNavigation();
+        initTimer();
+        initChat();
+        initTasks();
+        initModals();
+        initCalendar();
+        updateHomeScreen();
+        setGreeting();
+        setCurrentDate();
+        updateInsights();
+    } catch (e) {
+        console.log('App demo elements not found on this page, skipping app init.', e);
+    }
 
     function initScrollReveal() {
         // Elements that reveal individually
@@ -820,5 +825,38 @@ document.addEventListener('DOMContentLoaded', () => {
         items.forEach(item => showcaseObserver.observe(item));
     }
 
+    // FAQ Accordion (using event delegation for reliability)
+    document.body.addEventListener('click', (e) => {
+        const btn = e.target.closest('.faq-question');
+        if (btn) {
+            const faqItem = btn.closest('.faq-item');
+            if (faqItem) {
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            }
+        }
+    });
+
     initStickyShowcase();
 });
+
+// Register Service Worker for PWA
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(registration => {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, err => {
+        console.log('ServiceWorker registration failed: ', err);
+      });
+  });
+}
