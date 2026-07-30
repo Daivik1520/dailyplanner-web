@@ -22,8 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let timerTotal = 25 * 60;
     let chatHistory = [];
 
+    // Awwwards Style Features
+    initCustomCursor();
+    initTypography();
+    initParallax();
+
     // Scroll Reveal Animations
     initScrollReveal();
+    initBgMorph();
 
     // Initialize Lenis Smooth Scroll
     const lenis = new Lenis({
@@ -142,7 +148,182 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('App demo elements not found on this page, skipping app init.', e);
     }
 
+    // Scroll-driven background morph: each section owns a "mood" (glow
+    // position/color/tint + a light/dark flag for the navbar) and the fixed
+    // .bg-scene layer SNAPS to it the moment that section crosses the
+    // viewport center — a sudden cut, not a slow crossfade.
+    function initBgMorph() {
+        if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+        gsap.registerPlugin(ScrollTrigger);
+
+        const root = document.documentElement;
+        const navbar = document.getElementById('navbar');
+        const moods = [
+            { selector: '.image-hero-section', x: '50%', y: '50%', glow: 'transparent', r: '0%', base: 'transparent' },
+            { selector: '.hero-full', x: '80%', y: '0%', glow: 'rgba(227, 46, 59, 0.30)', r: '80%', base: '#fdf1ee' },
+            { selector: '.demo-section', x: '15%', y: '20%', glow: 'rgba(230, 168, 46, 0.26)', r: '85%', base: '#fff6ea' },
+            { selector: '.comparison-section', x: '50%', y: '0%', glow: 'rgba(43, 36, 38, 0.16)', r: '90%', base: '#eee5df', dark: true },
+            { selector: '.features-section', x: '10%', y: '90%', glow: 'rgba(227, 46, 59, 0.32)', r: '85%', base: '#fde3e0' },
+            { selector: '.founder-section', x: '90%', y: '30%', glow: 'rgba(227, 46, 59, 0.18)', r: '80%', base: '#f9f0e4' },
+            { selector: '.cta-section', x: '50%', y: '50%', glow: 'rgba(227, 46, 59, 0.55)', r: '90%', base: '#2b1113', dark: true, punch: true },
+            { selector: '.faq-section', x: '50%', y: '0%', glow: 'rgba(227, 46, 59, 0.20)', r: '80%', base: '#fdf6ee' },
+            { selector: '.reviews-section', x: '20%', y: '50%', glow: 'rgba(230, 168, 46, 0.30)', r: '85%', base: '#fdf1de' },
+            { selector: '.newsletter-section', x: '50%', y: '100%', glow: 'rgba(227, 46, 59, 0.30)', r: '90%', base: '#221a1b', dark: true },
+        ];
+
+        moods.forEach(mood => {
+            const el = document.querySelector(mood.selector);
+            if (!el) return;
+
+            ScrollTrigger.create({
+                trigger: el,
+                start: 'top center',
+                end: 'bottom center',
+                onEnter: () => snapTo(mood),
+                onEnterBack: () => snapTo(mood),
+            });
+        });
+
+        function snapTo(mood) {
+            // Sudden cut: near-instant with a slight overshoot "pop" rather
+            // than a gradual multi-second crossfade.
+            gsap.to(root, {
+                '--bg-x': mood.x,
+                '--bg-y': mood.y,
+                '--bg-glow': mood.glow,
+                '--bg-glow-r': mood.r,
+                '--bg-base': mood.base,
+                duration: 0.45,
+                ease: 'back.out(1.6)',
+                overwrite: 'auto',
+            });
+
+            // The CTA band gets an extra hard flash-punch on top of the snap.
+            if (mood.punch) {
+                gsap.fromTo(root,
+                    { '--bg-glow-r': '10%' },
+                    { '--bg-glow-r': mood.r, duration: 0.35, ease: 'power4.out', overwrite: 'auto' }
+                );
+            }
+
+            if (navbar) {
+                gsap.to(root, {
+                    '--nav-bg': mood.dark ? 'rgba(20, 12, 13, 0.85)' : 'rgba(252, 250, 248, 0.92)',
+                    '--nav-text': mood.dark ? '#fdf1ee' : '#2b2426',
+                    '--nav-text-light': mood.dark ? 'rgba(253, 241, 238, 0.7)' : '#948785',
+                    '--nav-border': mood.dark ? 'rgba(253, 241, 238, 0.15)' : 'rgba(241, 234, 229, 0.94)',
+                    duration: 0.35,
+                    ease: 'power3.out',
+                    overwrite: 'auto',
+                });
+                gsap.fromTo(navbar,
+                    { scale: 0.985 },
+                    { scale: 1, duration: 0.4, ease: 'back.out(2.2)', overwrite: 'auto' }
+                );
+            }
+        }
+
+        // Bouncy entrance: the navbar drops in on load instead of just
+        // being there.
+        if (navbar) {
+            gsap.from(navbar, {
+                y: -80,
+                opacity: 0,
+                duration: 0.9,
+                ease: 'back.out(1.7)',
+                delay: 0.1,
+            });
+        }
+    }
+
+    function initCustomCursor() {
+        const cursor = document.querySelector('.custom-cursor');
+        const follower = document.querySelector('.custom-cursor-follower');
+        if (!cursor || !follower) return;
+
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let followerX = 0, followerY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function renderCursor() {
+            // Smoothly ease cursor and follower to mouse position
+            cursorX += (mouseX - cursorX) * 0.5;
+            cursorY += (mouseY - cursorY) * 0.5;
+            
+            followerX += (mouseX - followerX) * 0.15;
+            followerY += (mouseY - followerY) * 0.15;
+
+            cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%) translateZ(0)`;
+            follower.style.transform = `translate(${followerX}px, ${followerY}px) translate(-50%, -50%) translateZ(0)`;
+
+            requestAnimationFrame(renderCursor);
+        }
+        requestAnimationFrame(renderCursor);
+
+        // Add magnetic pull to interactive elements
+        const interactives = document.querySelectorAll('a, button, .nav-link, .fab, .session-card');
+        interactives.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover');
+                follower.classList.add('hover');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover');
+                follower.classList.remove('hover');
+            });
+        });
+    }
+
+    function initTypography() {
+        if (typeof SplitType === 'undefined') return;
+
+        // Apply SplitType to headlines
+        const headlines = document.querySelectorAll('.section-heading, .hero-headline, .focus-headline');
+        headlines.forEach(headline => {
+            const split = new SplitType(headline, { types: 'words, chars' });
+            
+            gsap.from(split.chars, {
+                scrollTrigger: {
+                    trigger: headline,
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 50,
+                opacity: 0,
+                rotateX: -90,
+                stagger: 0.02,
+                duration: 0.8,
+                ease: 'back.out(1.7)'
+            });
+        });
+    }
+
+    function initParallax() {
+        if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+        // Float elements up at different speeds when scrolling
+        const parallaxImages = document.querySelectorAll('.founder-img, .developer-img, .phone-mockup');
+        parallaxImages.forEach(img => {
+            gsap.to(img, {
+                scrollTrigger: {
+                    trigger: img,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: 1 // smooth scrubbing
+                },
+                y: (i, target) => -50 // move up by 50px during scroll
+            });
+        });
+    }
+
     function initScrollReveal() {
+        if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
         // Elements that reveal individually
         const revealSelectors = [
             '.feature-band-card',
@@ -156,36 +337,55 @@ document.addEventListener('DOMContentLoaded', () => {
             '.features-header',
             '.blog-header',
             '.comparison-header',
-            '.hero-content-center',
         ];
 
         revealSelectors.forEach(sel => {
-            document.querySelectorAll(sel).forEach(el => {
-                el.classList.add('reveal');
+            gsap.utils.toArray(sel).forEach(el => {
+                gsap.from(el, {
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none'
+                    },
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: 'power3.out'
+                });
             });
         });
 
         // Stagger containers
-        document.querySelectorAll('.feature-bands-stack, .blog-grid, .features-grid, .reviews-grid').forEach(el => {
-            el.classList.add('reveal-stagger');
-            el.classList.add('reveal');
-        });
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
+        const staggerContainers = ['.feature-bands-stack', '.blog-grid', '.features-grid', '.reviews-grid'];
+        staggerContainers.forEach(sel => {
+            gsap.utils.toArray(sel).forEach(container => {
+                gsap.from(container.children, {
+                    scrollTrigger: {
+                        trigger: container,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none'
+                    },
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: 'power3.out'
+                });
             });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -40px 0px'
         });
 
-        document.querySelectorAll('.reveal').forEach(el => {
-            observer.observe(el);
-        });
+        // Hero Section specific entrance animation
+        const heroContent = document.querySelector('.hero-content-center');
+        if (heroContent) {
+            gsap.from(heroContent.children, {
+                y: 30,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.15,
+                ease: 'back.out(1.5)',
+                delay: 0.2
+            });
+        }
     }
 
     // Website Navigation

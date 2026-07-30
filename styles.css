@@ -26,6 +26,18 @@
     --radius-lg: 22px;
     --radius-md: 16px;
     --radius-pill: 999px;
+
+    /* Scroll-driven background morph */
+    --bg-x: 80%;
+    --bg-y: 0%;
+    --bg-glow: rgba(227, 46, 59, 0.28);
+    --bg-glow-r: 75%;
+    --bg-base: #fdf1ee;
+
+    --nav-bg: rgba(252, 250, 248, 0.92);
+    --nav-text: #2b2426;
+    --nav-text-light: #948785;
+    --nav-border: rgba(241, 234, 229, 0.94);
 }
 
 *,
@@ -64,13 +76,106 @@ html.lenis {
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', system-ui, 'Inter', sans-serif;
-    background:
-        radial-gradient(circle at top right, rgba(227, 46, 59, 0.055), transparent 28%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0) 19rem),
-        var(--bg);
+    background: transparent;
     color: var(--text);
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
+    cursor: none; /* Hide default cursor for Awwwards style */
+}
+
+/* --- Awwwards Custom Cursor --- */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%) translateZ(0);
+    transition: transform 0.1s, background-color 0.3s;
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+.custom-cursor-follower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid rgba(227, 46, 59, 0.4);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%) translateZ(0);
+    transition: transform 0.15s cubic-bezier(0.19, 1, 0.22, 1), width 0.3s, height 0.3s, background-color 0.3s;
+    will-change: transform, width, height;
+    backface-visibility: hidden;
+}
+
+.custom-cursor.hover {
+    transform: translate(-50%, -50%) scale(1.5);
+    background-color: var(--primary-light);
+}
+
+.custom-cursor-follower.hover {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(227, 46, 59, 0.08);
+    border-color: transparent;
+}
+
+/* Fallback for touch devices */
+@media (hover: none) and (pointer: coarse) {
+    body { cursor: auto; }
+    .custom-cursor, .custom-cursor-follower { display: none; }
+}
+
+/* --- Cinematic Noise Overlay --- */
+.noise-overlay {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    z-index: 9997; /* Behind cursor, above everything else */
+    background: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+    opacity: 0.025; /* Very subtle film grain */
+    animation: noiseAnim 0.4s infinite steps(2); /* optimized animation steps */
+    will-change: transform;
+    transform: translateZ(0); /* force GPU acceleration */
+    backface-visibility: hidden;
+}
+
+@keyframes noiseAnim {
+    0% { transform: translate(0,0) }
+    10% { transform: translate(-1%,-1%) }
+    20% { transform: translate(1%,1%) }
+    30% { transform: translate(-2%,-2%) }
+    40% { transform: translate(2%,2%) }
+    50% { transform: translate(-1%,2%) }
+    60% { transform: translate(1%,-1%) }
+    70% { transform: translate(2%,1%) }
+    80% { transform: translate(-2%,-1%) }
+    90% { transform: translate(1%,2%) }
+    100% { transform: translate(0,0) }
+}
+
+/* Fixed layer behind all content; its gradient position/color morph as the
+   user scrolls through sections, giving the page a living background. */
+.bg-scene {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at var(--bg-x) var(--bg-y), var(--bg-glow), transparent var(--bg-glow-r)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0) 19rem),
+        var(--bg-base);
 }
 
 .container {
@@ -93,11 +198,27 @@ body {
     right: 0;
     z-index: 1000;
     padding: 10px 0;
-    background: rgba(252, 250, 248, 0.92);
+    background: var(--nav-bg);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(241, 234, 229, 0.94);
-    transition: 0.3s;
+    border-bottom: 1px solid var(--nav-border);
+}
+
+.nav-logo,
+.nav-link {
+    transition: color 0.25s;
+}
+
+.nav-logo {
+    color: var(--nav-text);
+}
+
+.nav-link {
+    color: var(--nav-text-light);
+}
+
+.nav-link:hover {
+    color: var(--nav-text);
 }
 
 @media (min-width: 768px) {
@@ -107,10 +228,7 @@ body {
 }
 
 .navbar.scrolled {
-    background: rgba(252, 250, 248, 0.92);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border-bottom: 1px solid var(--border);
+    box-shadow: 0 8px 30px rgba(43, 36, 38, 0.08);
 }
 
 .nav-container {
@@ -260,14 +378,27 @@ body {
 .nav-toggle span {
     width: 22px;
     height: 2px;
-    background: var(--text);
-    transition: 0.3s;
+    background: var(--nav-text);
+    transition: background-color 0.25s, transform 0.3s;
 }
 
 @media (min-width: 769px) {
     .nav-toggle {
         display: none;
     }
+}
+
+/* Image Hero Section */
+.image-hero-section {
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+    background-image: url('hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 10;
 }
 
 /* Full-Screen Hero — Mobile First */
@@ -280,7 +411,7 @@ body {
     justify-content: center;
     text-align: center;
     padding: 100px 16px 60px;
-    background: var(--bg);
+    background: transparent;
     position: relative;
     background-image:
         radial-gradient(circle at 50% 30%, rgba(227, 46, 59, 0.06) 0%, transparent 60%),
@@ -386,6 +517,66 @@ body {
     background: var(--primary-light);
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(227, 46, 59, 0.3);
+}
+
+/* Pop micro-interaction: shared by hero/outline/nav/app CTA buttons.
+   A ring bursts outward on hover and the button snaps down on click,
+   giving every CTA the same tactile "pop" instead of a plain hover fade. */
+.btn-hero,
+.btn-hero-outline,
+.nav-cta,
+.btn-cta {
+    position: relative;
+    isolation: isolate;
+}
+
+.btn-hero::after,
+.btn-hero-outline::after,
+.nav-cta::after,
+.btn-cta::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 0 0 rgba(227, 46, 59, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.btn-hero:hover::after,
+.btn-hero-outline:hover::after,
+.nav-cta:hover::after,
+.btn-cta:hover::after {
+    animation: btn-pop-ring 0.6s ease-out;
+}
+
+.btn-hero:active,
+.btn-hero-outline:active,
+.nav-cta:active,
+.btn-cta:active {
+    transform: scale(0.94);
+    transition: transform 0.12s ease-out;
+}
+
+@keyframes btn-pop-ring {
+    0% {
+        box-shadow: 0 0 0 0 rgba(227, 46, 59, 0.45);
+        opacity: 1;
+    }
+    100% {
+        box-shadow: 0 0 0 14px rgba(227, 46, 59, 0);
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn-hero::after,
+    .btn-hero-outline::after,
+    .nav-cta::after,
+    .btn-cta::after {
+        animation: none !important;
+    }
 }
 
 .btn-apple {
@@ -521,7 +712,7 @@ body {
 /* Direct App Demo Section */
 .demo-section {
     position: relative;
-    background: var(--bg);
+    background: transparent;
     padding: 160px 0 100px; /* Space to clear hero bands */
     min-height: auto;
     z-index: 10;
@@ -1839,7 +2030,7 @@ body {
 /* Comparison Table */
 .comparison-section {
     padding: 140px 0;
-    background: var(--bg);
+    background: transparent;
     position: relative;
     overflow: hidden;
 }
@@ -1965,7 +2156,7 @@ body {
 /* Features Grid — Mobile First */
 .features-section {
     padding: 60px 0;
-    background: var(--bg);
+    background: transparent;
     position: relative;
 }
 
@@ -2758,7 +2949,7 @@ body {
 /* Founder Section — Mobile First */
 .founder-section {
     padding: 60px 0;
-    background: var(--bg);
+    background: transparent;
     position: relative;
 }
 
@@ -2856,7 +3047,7 @@ body {
 /* CTA Section — Mobile First */
 .cta-section {
     padding: 60px 0;
-    background: var(--bg);
+    background: transparent;
 }
 
 @media (min-width: 768px) {
@@ -3294,35 +3485,6 @@ body {
 }
 
 /* Scroll Reveal Animations */
-.reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1),
-                transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Stagger children */
-.reveal-stagger > * {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
-.reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
-.reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.15s; }
-.reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.2s; }
-
-.reveal-stagger.visible > * {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 /* Safe area / notch support */
 @supports (padding: env(safe-area-inset-bottom)) {
     .footer {
@@ -3455,7 +3617,7 @@ body {
 /* Reviews Section — Mobile First, Scrolling Marquee */
 .reviews-section {
     padding: 60px 0;
-    background: var(--bg);
+    background: transparent;
     overflow: hidden;
 }
 
@@ -3960,7 +4122,7 @@ img.member-img {
 /* FAQ Section */
 .faq-section {
     padding: 80px 0;
-    background: #fdfcfb;
+    background: transparent;
 }
 
 .faq-list {
@@ -4024,7 +4186,7 @@ img.member-img {
 /* Newsletter Section */
 .newsletter-section {
     padding: 60px 0 0;
-    background: var(--white);
+    background: transparent;
 }
 
 .newsletter-card {
